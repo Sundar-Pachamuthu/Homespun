@@ -1,0 +1,17 @@
+.Navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: pink;
+    position: sticky;
+    padding: 20px;
+    text-transform: uppercase;
+}
+.Navbar img {
+    border-radius: 50%;
+    height: 100px;
+}
+.Navbar h1{
+    padding-right: 150px;
+}
