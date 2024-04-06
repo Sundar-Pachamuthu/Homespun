@@ -7,6 +7,8 @@ const multer = require("multer");
 const path = require("path");
 // const { default: mongoose } = require("mongoose");
 const cors = require("cors");
+const { get } = require("http");
+const { log } = require("console");
 app.use(express.json());
 app.use(cors());
 
@@ -43,6 +45,60 @@ app.post("/upload",upload.single('product'),(req,res)=>{
         image_url: `http://localhost:${port}/images/${req.file.filename}`
     })
 })
+
+//oder details
+const OrderDetail = mongoose.model("OderDetails",{
+    id:{
+        type:Number,
+        // required:true,
+    },
+    name:{
+        type:String,
+        required:true,
+    },
+    address:{
+        type:String,
+        required:true,
+    },
+    deliveryTime:{
+        type:String,
+        required:true,
+    },
+    amount:{
+        type:String,
+        required:true,
+    },
+})
+
+
+app.post('/orderdetails', async (req, res)=>{
+
+    let orderdetails= await OrderDetail.find({});
+    let id;
+    const Order_Details = new OrderDetail({
+        id:id,
+        name:req.body.name,
+        address:req.body.address,
+        deliveryTime:req.body.deliveryTime,
+        amount:req.body.amount,
+    });
+    console.log(Order_Details);
+    await Order_Details.save();
+    console.log("saved");
+    res.json({
+        success:true,
+        name:req.body.name,})
+})
+
+
+//creating api for getting all product
+
+app.get('/orderdetails', async(req,res)=>{
+    let orderdetails = await OrderDetail.find({});
+    console.log("order details fetched");
+    res.send(orderdetails);
+})
+
 
 //schema for creating product
 
@@ -102,7 +158,7 @@ app.post('/addproduct', async (req, res)=>{
         new_price:req.body.new_price,
         old_price:req.body.old_price,
 
-    });
+    });   
     console.log(product);
     await product.save();
     console.log("saved");
@@ -111,6 +167,7 @@ app.post('/addproduct', async (req, res)=>{
         name:req.body.name,
     })
 })
+
 
 
 //creating api for deleting product
@@ -209,6 +266,71 @@ app.post('/login',async (req,res)=>{
     }
 })
 
+// creating endpoint for new collections data
+app.get('/newcollections',async (req,res)=>{
+    let products = await Product.find({});
+    let newcollection =products.slice(1).slice(-8);
+    console.log("NewCollection fetched");
+    res.send(newcollection);
+})
+
+
+//creating end point for popular
+app.get('/popularinlunch',async(req,res)=>{
+    let products = await Product.find({category:"lunch"})
+    let popularinlunch=products.slice(0,4);
+    console.log("popular in lunch fetchen");
+    res.send(popularinlunch);
+})
+
+// creating middle ware to fetch user
+const fetchUser = async(req,res,next)=>{
+    const token = req.header('auth-token');
+    if(!token){
+        res.status(401).send({errors:"Please Authenticate using valid token"});
+    }
+    else{
+        try{
+            const data =jwt.verify(token,'secret_ecom');
+            req.user=data.user;
+            next();
+        }
+        catch(error){
+            res.status(401).send({errors:"Please authendicate using a valid token"})
+        }
+    }
+}
+
+
+// creating ed point for cart products
+
+app.post('/addtocart',fetchUser,async (req,res)=>{
+    console.log(req.body.itemId, "Added");
+    let userData = await Users.findOne({ _id :req.user.id});
+    if(userData.cartData[req.body.itemId]>0)
+    userData.cartData[req.body.itemId] +=1;
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("removed");
+
+})
+
+//creatin endpint to remove from cart
+
+app.post('/removefromcart',fetchUser,async(req,res)=>{
+    console.log(req.body.itemId, "Removed");
+    let userData = await Users.findOne({ _id :req.user.id});
+    userData.cartData[req.body.itemId] -=1;
+    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData});
+    res.send("Added");
+})
+
+
+//creating end point for cart data
+app.post('/getcart',fetchUser,async (req,res)=>{
+    console.log("getCart");
+    let userData = await Users.findOne({_id:req.user.id});
+    res.json(userData.cartData);
+})
 
 
 app.listen(port,(error)=>{

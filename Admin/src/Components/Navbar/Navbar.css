@@ -3,15 +3,35 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: pink;
+    background-color: white;
     position: sticky;
-    padding: 20px;
+    padding: 0px;
+    box-shadow: 0px 0px 5px rgb(64, 255, 64);
     text-transform: uppercase;
 }
+
+@font-face {
+    font-family: head;
+    src: url(ShinyCrystal-Yq3z4.ttf);
+}
+.Navbar p{
+    padding-right: 600px;
+    font-size: 6rem;
+    font-weight: 800;
+    font-family: head;
+    color: transparent;
+    background: linear-gradient(to left,rgb(207, 252, 207),rgb(0, 177, 0));
+    background-clip: text;
+}
 .Navbar img {
-    border-radius: 50%;
-    height: 100px;
+    /* border-radius: 50%; */
+    height: 150px;
 }
 .Navbar h1{
+    width: 50%;
     padding-right: 150px;
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 4px rgb(0, 243, 125);
+
 }

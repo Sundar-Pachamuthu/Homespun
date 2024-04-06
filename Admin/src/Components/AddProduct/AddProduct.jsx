@@ -82,7 +82,7 @@ const AddProduct = () => {
           <option value="dinner">DINNER</option>
         </select>
       </div>
-      <div className="addproduct-itemfield">
+      <div className="addproduct-itemfield2">
         <label htmlFor="file-input">
           <img src={ image?URL.createObjectURL(image): upload_area} className='addproduct-img' alt="" />
         </label>
