@@ -1,0 +1,75 @@
+.carticon-product-icon{
+    width: 150px;
+    height: 150px ;
+}
+.cartitems-main{
+    /* width: 80%; */
+}
+.title{
+    font-size: 3rem !important;
+    color: rgb(0, 0, 0) !important;
+    text-shadow: 0px 0px 5px rgb(125, 125, 124) !important;
+}
+.formm{
+    /* background-color: pink; */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 35px;
+}
+.formm p,
+.formm h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: green;
+    text-shadow: 2px 2px 6px greenyellow;
+}
+.formm input{
+    width: 500px;
+    background-color: rgb(175, 247, 175);
+    height: 55px;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-size: 1.7rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+.sel{
+    display: flex;
+}
+select{
+    border: none;
+    background-color: rgb(175, 247, 175);
+    border-radius: 30px;
+    height: 55px;
+    text-transform: uppercase;
+    width: 500px;
+    align-items: center;
+    text-align: center;
+    font-size: 1.7rem;
+}
+.formm button{
+    width: fit-content;
+    height: 58px;
+    outline: none;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(169, 213, 22);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .6s;
+}
+.formm button:hover{
+    transition: .6s;
+    background-color: rgb(103, 172, 0);
+    font-size: 1.6rem;
+    width: fit-content;
+}

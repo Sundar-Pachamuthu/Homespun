@@ -1,0 +1,41 @@
+.orderplaced{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 60px;
+}
+.orderplaced h1{
+    text-transform: uppercase;
+    text-shadow: 0px 0px 3px green;
+    font-size: 3rem;
+}
+.orderplaced img{
+    animation: fade 1s ease-in;
+}
+.orderplaced button{
+    padding: 15px;
+    background: rgb(78, 227, 78);
+    font-size: 2rem;
+    text-shadow: 0px 0px 5px rgb(127, 127, 127);
+    text-transform: uppercase;
+    border: none;
+    font-weight: 700;
+    border-radius: 30px;
+}
+@keyframes fade {
+    0%{
+        opacity: 0%;
+        transform: translateY(100%);
+    }
+    50%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0%);
+
+    }
+}

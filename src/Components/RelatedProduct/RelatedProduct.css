@@ -1,0 +1,36 @@
+.relatedproduct{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    flex-direction: column;
+   
+
+}
+.relatedproduct h1{
+    font-family: header;
+    color: rgb(110, 177, 10);
+    margin-top: 5rem;
+    font-size: 5rem;
+    text-transform: capitalize;
+    
+}
+.relatedproduct hr{
+    background: rgb(110, 177, 10);
+    height: 10px;
+    border: none;
+    width: 200px;
+    margin: 4px;
+    border-radius: 30px;
+}
+.relatedproducts-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: pink; */
+    margin-top: 4rem;
+}
+.relatedproducts-items img{
+    border-radius: 30px;
+}

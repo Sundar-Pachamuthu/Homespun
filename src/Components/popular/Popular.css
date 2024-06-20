@@ -1,0 +1,36 @@
+.popular{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 90vh; */
+    justify-content: space-evenly;
+    margin: 50px 0px;
+}
+.popular h1{
+    background:linear-gradient(to bottom, rgb(110, 248, 110), rgb(2, 127, 2)); 
+    color: transparent;
+    background-clip: text;
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 40px;
+    font-family: header;
+    text-transform: uppercase;
+}
+.popular hr{
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background: rgb(110, 248, 110);
+    border: none;
+}
+.popular-item{
+    margin-top: 50px;
+    display: flex;
+    /* gap: 30px; */
+    justify-content: space-evenly;
+    align-items: center;
+}
+.popular-item img{
+    border-radius: 15px;
+    width: 300px;
+}

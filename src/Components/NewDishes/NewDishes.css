@@ -1,0 +1,33 @@
+.newdishes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 100px;
+}
+.newdishes h1{
+    background:linear-gradient(to bottom, rgb(110, 248, 110), rgb(2, 127, 2)); 
+    color: transparent;
+    background-clip: text;
+    font-size: 50px;
+    font-weight: 600;
+    font-family: header;
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+.newdishes hr{
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    background: rgb(110, 248, 110);
+    border: none;
+}
+.arrives{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 50px;
+    gap: 20px;
+}
+.arrives img{
+    border-radius: 15px;
+}
